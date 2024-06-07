@@ -7,7 +7,7 @@ def addClient(Nom,Prenom,Adresse) :
     except:
         return 0
     
-def updateClient(id : int,Nom:None,Prenom : None, Adresse : None):
+def updateClient(id : int, Nom=None ,Prenom=None, Adresse=None):
     try :
         client = Clients.objects.filter(id = id)[0]
         if(Nom) :
