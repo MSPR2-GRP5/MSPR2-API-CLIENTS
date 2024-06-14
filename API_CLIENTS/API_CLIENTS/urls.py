@@ -3,9 +3,10 @@ from django.urls import path
 from ninja import NinjaAPI, Schema
 import Clients.DBFunctions as dbf
 from Clients.models import *
+from ninja_apikey.security import APIKeyAuth
 # from .api import api
 
-api = NinjaAPI()
+api = NinjaAPI(auth=APIKeyAuth())
 class ClientsOut(Schema):
     id : int
     Nom : str

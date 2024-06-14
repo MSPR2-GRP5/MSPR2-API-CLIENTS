@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Clients.apps.ClientsConfig'
+    'Clients.apps.ClientsConfig',
+    "ninja_apikey",
 ]
 
 MIDDLEWARE = [
