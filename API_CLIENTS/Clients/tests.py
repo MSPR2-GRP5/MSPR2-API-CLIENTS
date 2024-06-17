@@ -1,5 +1,5 @@
 from django.test import TestCase
-from Clients.models import *
+from Clients.models import Clients
 import Clients.DBFunctions as dbf
 # Create your tests here.
 

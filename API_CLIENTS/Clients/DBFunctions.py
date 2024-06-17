@@ -1,10 +1,10 @@
-from Clients.models import *
+from Clients.models import Clients
 
 def addClient(Nom,Prenom,Adresse) :
     try :
         Clients(Nom=Nom,Prenom = Prenom, Adresse=Adresse).save()
         return 1
-    except:
+    except Exception:
         return 0
     
 def updateClient(id : int, Nom=None ,Prenom=None, Adresse=None):
@@ -17,7 +17,7 @@ def updateClient(id : int, Nom=None ,Prenom=None, Adresse=None):
         if(Adresse):
             client.Adresse = Adresse
         client.save()
-    except:
+    except Exception:
         return 0
 
     
@@ -32,12 +32,12 @@ def searchClient(Nom = None,Prenom = None,Adresse =None) :
             clients = clients.filter(Adresse = Adresse)
         return clients
         
-    except:
+    except Exception:
         return 0
     
 def deleteClient(id:int):
     try:
         Clients.objects.filter(id = id).delete()
         return 1
-    except :
+    except Exception:
         return 0

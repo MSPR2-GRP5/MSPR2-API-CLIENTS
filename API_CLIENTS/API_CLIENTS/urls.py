@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI, Schema
 import Clients.DBFunctions as dbf
-from Clients.models import *
 from ninja_apikey.security import APIKeyAuth
 # from .api import api
 
