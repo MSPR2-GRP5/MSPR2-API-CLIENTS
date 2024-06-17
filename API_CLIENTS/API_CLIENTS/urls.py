@@ -3,7 +3,7 @@ from django.urls import path
 from ninja import NinjaAPI, Schema
 import Clients.DBFunctions as dbf
 from ninja_apikey.security import APIKeyAuth 
-from typing import Union,Any
+from typing import Any
 # from .api import api
 
 api = NinjaAPI(auth=APIKeyAuth())

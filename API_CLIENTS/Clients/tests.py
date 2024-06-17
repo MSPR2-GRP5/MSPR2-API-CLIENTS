@@ -17,7 +17,7 @@ class DbTestCase(TestCase) :
         self.assertEqual(Clients.objects.all().count(),2,"Should return 2")
     
     def testCreateClient_NotWorking(self)-> None:
-        self.assertEqual(dbf.addClient("","Trio","In my computer"),0,"Should return 0")
+        self.assertEqual(dbf.addClient(None,"Trio","In my computer"),0,"Should return 0") # type: ignore
         self.assertEqual(dbf.deleteClient(412),0,"Should return 0")
 
     def testSearchClients_Working(self)-> None:
