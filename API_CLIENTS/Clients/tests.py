@@ -9,8 +9,12 @@ class DbTestCase(TestCase) :
         self.Client_1 = Clients.objects.create(Nom = "Tester", Prenom = "Duo", Adresse = "In my computer")
 
     def testCreateClient_Working(self):
-        self.assertEqual(dbf.addClient("Tester","Trio","In my computer"),1,"Should return 1")
-        self.assertEqual(dbf.deleteClient(3),1,"Should return 1")
+        dbf.addClient("Tester","Trio","In my computer")
+        self.assertEqual(Clients.objects.all().count(),3,"Should return 3")
+        
+    def testDeleteClient(self):
+        dbf.deleteClient(3)
+        self.assertEqual(Clients.objects.all().count(),2,"Should return 2")
     
     def testCreateClient_NotWorking(self):
         self.assertEqual(dbf.addClient(None,"Trio","In my computer"),0,"Should return 0")
