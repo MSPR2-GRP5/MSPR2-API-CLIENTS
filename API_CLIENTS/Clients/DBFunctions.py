@@ -1,6 +1,21 @@
-from Clients.models import Clients
+from Clients.models import Clients,address,company,profile
 from typing import Any
+import datetime
 
+def createtest(Nom: str, Prenom: str, adresse_code: str, adresse_city : str, profile_name : str, profile_lastname:str,c_name:str):
+    try:
+        # Add = address(postalCode = adresse_code,City = adresse_city)
+
+        # Prof = profile(Nom = profile_lastname,Prenom = profile_name)
+        # print(company,type(company))
+        # Com = company(company_name = c_name)
+        # Add.save()
+        # Prof.save()
+        # Com.save()
+        Clients(created_at = datetime.datetime.now(),username = "Kaka",Nom=Nom,Prenom=Prenom).save()
+        return 1
+    except Exception:
+        return Exception
 
 def addClient(Nom: str, Prenom: str, Adresse: str) -> int:
     try:
