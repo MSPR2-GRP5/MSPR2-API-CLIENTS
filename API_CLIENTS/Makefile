@@ -21,7 +21,7 @@ clean:
 
 # Running the project
 server:
-	python manage.py migrate && python manage.py runserver
+	python manage.py migrate && python manage.py runserver 8001
 
 checkmigrations:
 	python manage.py makemigrations --check --no-input --dry-run
