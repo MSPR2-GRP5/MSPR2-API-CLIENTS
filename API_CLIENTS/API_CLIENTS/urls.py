@@ -6,8 +6,8 @@ from ninja_apikey.security import APIKeyAuth
 from typing import Any
 # from .api import api
 
-# api = NinjaAPI(auth=APIKeyAuth())
-api = NinjaAPI()
+api = NinjaAPI(auth=APIKeyAuth())
+# api = NinjaAPI()
 class ClientsOut(Schema):
     id : int
     Nom : str
