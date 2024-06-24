@@ -23,15 +23,20 @@ def updateClient(id : int, Nom :str ="",Prenom : str ="", Adresse : str ="") -> 
         return 0
 
     
-def searchClient(Nom:str = "",Prenom:str = "",Adresse:str = "") -> Any :
+def searchClient(id : int = 0,Nom:str = "",Prenom:str = "",Adresse:str = "") -> Any :
     try:
         clients = Clients.objects.all()
-        if(Nom) :
-            clients = clients.filter(Nom = Nom)
-        if(Prenom):
-            clients = clients.filter(Prenom = Prenom)
-        if(Adresse):
-            clients = clients.filter(Adresse = Adresse)
+        print("banane")
+        if(id != 0):
+            print("allo",id)
+            clients = clients.filter(id = id)
+        else:
+            if(Nom) :
+                clients = clients.filter(Nom = Nom)
+            if(Prenom):
+                clients = clients.filter(Prenom = Prenom)
+            if(Adresse):
+                clients = clients.filter(Adresse = Adresse)
         return clients
         
     except Exception:
