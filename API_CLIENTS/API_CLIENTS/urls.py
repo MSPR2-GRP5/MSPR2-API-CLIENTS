@@ -13,19 +13,19 @@ class ClientsOut(Schema):
     Prenom : str
     Adresse : str
 
-@api.post("/customer")
+@api.post("/customers")
 def create(request: Any, Nom: str, Prenom: str, adresse: str) -> int:
     return(dbf.addClient(Nom,Prenom,adresse))
 
-@api.get("/customer", response = list[ClientsOut])
+@api.get("/customers", response = list[ClientsOut])
 def search(request: Any, Nom :str = "",Prenom :str = "", adresse :str = "") -> Any:
     return(dbf.searchClient(Nom,Prenom,adresse))
 
-@api.patch("/customer")
+@api.patch("/customers")
 def update(request: Any, id:int,Nom :str= "",Prenom :str= "", adresse :str= "") -> int:
     return(dbf.updateClient(id,Nom,Prenom,adresse))
 
-@api.delete("/customer")
+@api.delete("/customers")
 def delete(request: Any, id : int) -> int:
     return(dbf.deleteClient(id))
 
