@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('Clients', '0002_clients_adresse'),
+        ("Clients", "0002_clients_adresse"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='clients',
-            name='Adresse',
-            field=models.CharField(default='123', max_length=255),
+            model_name="clients",
+            name="Adresse",
+            field=models.CharField(default="123", max_length=255),
         ),
     ]
