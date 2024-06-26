@@ -1,18 +1,36 @@
-from Clients.models import Clients,address,company,profile
+from Clients.models import Clients,Address,Company,Profile
 from typing import Any
+from django.http import JsonResponse
 import datetime
 
-def createtest(Nom: str, Prenom: str, adresse_code: str, adresse_city : str, profile_name : str, profile_lastname:str,c_name:str):
-    try:
-        # Add = address(postalCode = adresse_code,City = adresse_city)
+def get_or_create_address(address_code: int, address_city: str) -> Address:
+    found_address = Address.objects.filter(id = address_code)
+    if found_address == []:
+        found_address = Address(id = address_code, address_city = address_city)
+        found_address.save()
+    else : 
+        found_address = found_address[0]
+    return found_address
 
-        # Prof = profile(Nom = profile_lastname,Prenom = profile_name)
-        # print(company,type(company))
-        # Com = company(company_name = c_name)
-        # Add.save()
-        # Prof.save()
-        # Com.save()
-        Clients(created_at = datetime.datetime.now(),username = "Kaka",Nom=Nom,Prenom=Prenom).save()
+def get_or_create_company(company_name: str) :
+    print(-1)
+    found_company = Company.objects
+    print(0)
+    if found_company == []:
+        print(1)
+        found_company = Company(company_name = company_name)
+        print(found_company)
+        found_company.save()
+    else : 
+        print(2)
+        found_company = found_company[0]
+    return found_company
+
+def createtest(Nom: str, Prenom: str, address_code: int, address_city : str, profile_name : str, profile_lastname:str,c_name:str):
+    try:
+        # Add = get_or_create_address(address_code=address_code,address_city=address_city)
+        print(-2)
+        Comp = get_or_create_company(company_name="c_name")
         return 1
     except Exception:
         return Exception

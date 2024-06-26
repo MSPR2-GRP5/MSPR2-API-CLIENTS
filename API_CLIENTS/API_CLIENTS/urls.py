@@ -17,7 +17,7 @@ class ClientsOut(Schema):
     Adresse: str
 
 @api.post("")
-def create(request: Any, Nom: str, Prenom: str, adresse_code: str, adresse_city : str, profile_name : str, profile_lastname:str,company:str):
+def create(request: Any, Nom: str, Prenom: str, adresse_code: int, adresse_city : str, profile_name : str, profile_lastname:str,company:str):
     return dbf.createtest(Nom,Prenom,adresse_code,adresse_city,profile_name,profile_lastname,c_name=company)
 # @api.post("")
 # def create(request: Any, Nom: str, Prenom: str, adresse: str) -> int:
