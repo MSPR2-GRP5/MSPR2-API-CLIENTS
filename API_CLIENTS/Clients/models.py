@@ -10,8 +10,8 @@ class Address(models.Model):
 class Profile(models.Model):
     object: models.Manager["Profile"]
     id = models.AutoField(primary_key=True, null=False),
-    Nom = models.CharField(max_length=255, null=False)
-    Prenom = models.CharField(max_length=255, null=False)
+    profile_name = models.CharField(max_length=255, null=False)
+    profile_lastname = models.CharField(max_length=255, null=False)
 
 class Company(models.Model):
     object: models.Manager["Company"]

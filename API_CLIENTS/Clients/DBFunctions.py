@@ -4,33 +4,37 @@ from django.http import JsonResponse
 import datetime
 
 def get_or_create_address(address_code: int, address_city: str) -> Address:
-    found_address = Address.objects.filter(id = address_code)
-    if found_address == []:
+    if not Address.objects.filter(id = address_code).exists() == []:
         found_address = Address(id = address_code, address_city = address_city)
         found_address.save()
     else : 
-        found_address = found_address[0]
+        found_address = Address.objects.filter(id = address_code)[0]
     return found_address
 
 def get_or_create_company(company_name: str) :
-    print(-1)
-    found_company = Company.objects
-    print(0)
-    if found_company == []:
-        print(1)
+    if not Company.objects.filter(company_name = company_name).exists():
         found_company = Company(company_name = company_name)
-        print(found_company)
         found_company.save()
     else : 
-        print(2)
-        found_company = found_company[0]
+        found_company = Company.objects.filter(company_name = company_name)[0]
     return found_company
+
+def get_or_create_profile(profile_name: str, profile_lastname: str) :
+    print(0)
+    if not Profile.objects.filter(profile_name=profile_name, profile_lastname=profile_lastname).exists():
+        print(1)
+        found_profile = Profile(profile_name=profile_name, profile_lastname=profile_lastname)
+        print(2)
+        found_profile.save()
+    else : 
+        found_profile = Profile.objects.filter(profile_name=profile_name, profile_lastname=profile_lastname)[0]
+    return found_profile
 
 def createtest(Nom: str, Prenom: str, address_code: int, address_city : str, profile_name : str, profile_lastname:str,c_name:str):
     try:
         # Add = get_or_create_address(address_code=address_code,address_city=address_city)
-        print(-2)
-        Comp = get_or_create_company(company_name="c_name")
+        # Comp = get_or_create_company(company_name=c_name)
+        Pro = get_or_create_profile(profile_name=profile_name, profile_lastname=profile_lastname)
         return 1
     except Exception:
         return Exception
