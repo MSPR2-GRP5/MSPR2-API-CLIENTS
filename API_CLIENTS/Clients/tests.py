@@ -37,7 +37,7 @@ class DbTestCase(TestCase):
 
     def testDeleteClient(self) -> None:
         dbf.deleteClient(3)
-        self.assertEqual(Clients.objects.all().count(), 1, "Should return 2")
+        self.assertEqual(Clients.objects.all().count(), 1, "Should return 1")
 
     def testSearchClients_Working(self) -> None:
         self.assertEqual(
