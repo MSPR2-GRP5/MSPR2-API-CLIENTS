@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "8a368cf4-ba95-4141-817e-fc03f6460682",
+		"_postman_id": "94e7b318-09fa-4bdc-98f6-7135db16cbb4",
 		"name": "Test_Customers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "36544656"
+		"_uid": "36544656-94e7b318-09fa-4bdc-98f6-7135db16cbb4"
 	},
 	"item": [
 		{
@@ -19,10 +19,12 @@
 							"    pm.expect(data.length).to.equal(5);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "b33da634-f470-4318-bc47-9a1bdd9441cd"
 					}
 				}
 			],
+			"id": "58b0b14d-4617-48f7-a7f7-68d73647e92c",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -61,10 +63,12 @@
 							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "6bdd608a-e183-45a8-ae2e-24ab134d7bf4"
 					}
 				}
 			],
+			"id": "89ec996a-da25-4aa3-a241-f542e3fc5d5e",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -133,10 +137,12 @@
 							"    pm.expect(data[0].client_name).to.include(\"Thomas Flitterman\");\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "4ddd471a-5ea0-4f50-81cb-26449c588231"
 					}
 				}
 			],
+			"id": "e9dcff14-e278-4be5-8cd5-fb3e5aaf64a6",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -170,6 +176,7 @@
 		},
 		{
 			"name": "update_customer",
+			"id": "b4da3be6-99b3-4ee0-addb-f83a2c92c2ad",
 			"request": {
 				"method": "PATCH",
 				"header": [],
@@ -212,10 +219,12 @@
 							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "e5f10faa-db54-4854-a6ca-0d2b30d1c63a"
 					}
 				}
 			],
+			"id": "51d1fc9e-07ea-433a-bc08-592174c3a74f",
 			"request": {
 				"method": "DELETE",
 				"header": [],
