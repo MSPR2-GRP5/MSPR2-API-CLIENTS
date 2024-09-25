@@ -1,9 +1,9 @@
 name: Automated API tests using Postman CLI
 
 on:
-  push:
-    branches: [ "main", "dev" ]
-  pull_request:
+  workflow_run :
+    workflows : ['linter-formatter','type-checker','unit-test']
+    type : [completed]
     branches: [ "main", "dev" ]
 
 jobs:
