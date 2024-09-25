@@ -19,7 +19,7 @@ jobs:
       - name: Run API tests
         run: |
           ls
-          cd ${{ github.workspace }}
+          cd ${{ github.workspace }}/API_CLIENTS/API_CLIENTS
           ls
           postman collection run "${{ github.workspace }}/API_CLIENTS/API_CLIENTS/Clients/Test_Customers.postman_collection.json" --integration-id "169085-${{ github.run_id }}"
           # Lint your API using Postman CLI
