@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main", "dev" ]
 
-jobs: 
+jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
     steps:
@@ -18,9 +18,6 @@ jobs:
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
       - name: Run API tests
         run: |
-          ls
-          cd ${{ github.workspace }}/API_CLIENTS/API_CLIENTS
-          ls
           postman collection run "${{ github.workspace }}/API_CLIENTS/Clients/Test_Customers.postman_collection.json" --integration-id "169085-${{ github.run_id }}"
           # Lint your API using Postman CLI
           postman api lint 9f31f65c-29c6-4b0c-85ab-ae8b4b6c6882 --integration-id 169085
