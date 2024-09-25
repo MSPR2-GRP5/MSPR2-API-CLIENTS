@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "8a368cf4-ba95-4141-817e-fc03f6460682",
+		"name": "Test_Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36544656"
+	},
+	"item": [
+		{
+			"name": "get_all_customers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"\r",
+							"pm.test('Number of customers = ' + data.length, function () {\r",
+							"    pm.expect(data.length).to.equal(5);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/customers/?address_code=0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"customers",
+						""
+					],
+					"query": [
+						{
+							"key": "address_code",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_cutomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/customers/?Nom=Flitterman&Prenom=Thomas&username=TFlit&adresse_code=38000&adresse_city=Grenoble&profile_name=Thomas&profile_lastname=Flitterman&company=FlitCorp",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"customers",
+						""
+					],
+					"query": [
+						{
+							"key": "Nom",
+							"value": "Flitterman"
+						},
+						{
+							"key": "Prenom",
+							"value": "Thomas"
+						},
+						{
+							"key": "username",
+							"value": "TFlit"
+						},
+						{
+							"key": "adresse_code",
+							"value": "38000"
+						},
+						{
+							"key": "adresse_city",
+							"value": "Grenoble"
+						},
+						{
+							"key": "profile_name",
+							"value": "Thomas"
+						},
+						{
+							"key": "profile_lastname",
+							"value": "Flitterman"
+						},
+						{
+							"key": "company",
+							"value": "FlitCorp"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search_customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"\r",
+							"pm.test('Contains new name', function () {\r",
+							"    pm.expect(data[0].client_name).to.include(\"Thomas Flitterman\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/customers/?Nom=Flitterman&address_code=0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"customers",
+						""
+					],
+					"query": [
+						{
+							"key": "Nom",
+							"value": "Flitterman"
+						},
+						{
+							"key": "address_code",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_customer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/customers/5?Nom=Fliterman&adresse_code=0",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"customers",
+						"5"
+					],
+					"query": [
+						{
+							"key": "Nom",
+							"value": "Fliterman"
+						},
+						{
+							"key": "adresse_code",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"1\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/customers/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"customers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "eFa2jzpE.rIp1q8Sz5D58v6fTiNOuzWa84Hpdf8hsZdF1AXbbxKtV0JcFeAt0saOZ",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			}
+		]
+	}
+}
