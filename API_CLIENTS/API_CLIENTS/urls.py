@@ -70,15 +70,8 @@ def get(request: Any, id: int) -> Any:
 
 
 @api.patch("{id}")
-def update(
-    request: Any,
-    id: int,
-    Nom: str = "",
-    Prenom: str = "",
-    adresse_code: int = 0,
-    address_city: str = "",
-) -> int:
-    return dbf.updateClient(id, Nom, Prenom, adresse_code, address_city)
+def update(request: Any,id: int,Nom: str = "",Prenom: str = "",adresse_code: int = -1,address_city: str = "",username = "",profile_name = "",profile_lastname = "",c_name = "") -> int:
+    return dbf.updateClient(id, Nom, Prenom, adresse_code, address_city,username,profile_name,profile_lastname,c_name)
 
 
 @api.delete("{id}")
