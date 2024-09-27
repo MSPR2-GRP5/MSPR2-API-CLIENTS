@@ -93,7 +93,7 @@ def updateClient(id: int,Nom: str = "",Prenom: str = "",address_code: int = -1,a
             client.client_lastname = Nom
         if Prenom:
             client.client_firstname = Prenom
-        if address_code != 0 or address_city != "":
+        if address_code != -1 or address_city != "":
             Add = create_address(address_code=address_code, address_city=address_city)
             client.client_address = Add
         if c_name != "" :
@@ -108,6 +108,11 @@ def updateClient(id: int,Nom: str = "",Prenom: str = "",address_code: int = -1,a
             client.client_profile.profile_lastname = profile_lastname
             client.client_profile.save()
             
+
+        if username !="":
+            client.client_username = username
+            
+        client.client_name = client.client_firstname + " " + client.client_lastname
         client.save()
         return 1
     except Exception:
