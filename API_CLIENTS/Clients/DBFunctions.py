@@ -90,8 +90,12 @@ def updateClient(
     id: int,
     Nom: str = "",
     Prenom: str = "",
-    address_code: int = 0,
+    address_code: int = -1,
     address_city: str = "",
+    username: str = "",
+    profile_name: str = "",
+    profile_lastname: str = "",
+    c_name: str = "",
 ) -> int:
     try:
         client = Clients.objects.filter(id=id)[0]
@@ -99,9 +103,25 @@ def updateClient(
             client.client_lastname = Nom
         if Prenom:
             client.client_firstname = Prenom
-        if address_code != 0:
+        if address_code != -1 or address_city != "":
             Add = create_address(address_code=address_code, address_city=address_city)
             client.client_address = Add
+        if c_name != "":
+            client.client_company.company_name = c_name
+            client.client_company.save()
+
+        if profile_name != "":
+            client.client_profile.profile_name = profile_name
+            client.client_profile.save()
+
+        if profile_lastname != "":
+            client.client_profile.profile_lastname = profile_lastname
+            client.client_profile.save()
+
+        if username != "":
+            client.client_username = username
+
+        client.client_name = client.client_firstname + " " + client.client_lastname
         client.save()
         return 1
     except Exception:
