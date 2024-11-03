@@ -1,9 +1,24 @@
+networks:
+  web:
+    external: true
+
 services:
-  app:
-    container_name: api-clients
-    build: ../API_CLIENTS
-    command: python manage.py runserver 0.0.0.0:8001
+  web:
+    container_name: mspr_customer
+    build: .
     ports:
-      - "8001:8001"
+      - "8001:8000"
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=web
+      - traefik.http.routers.mspr_customer.rule=Host(`client.mspr.lorisperc.in`)
+      - traefik.http.routers.mspr_customer.service=mspr_customer
+      - traefik.http.routers.mspr_customer.entrypoints=web
+      - traefik.http.routers.mspr_customer.entrypoints=websecure
+      - traefik.http.routers.mspr_customer.tls=true
+      - traefik.http.routers.mspr_customer.tls.certResolver=lets-encrypt
+      - traefik.http.services.mspr_customer.loadbalancer.server.port=8000
+    networks:
+      - web
     env_file:
       - .env
