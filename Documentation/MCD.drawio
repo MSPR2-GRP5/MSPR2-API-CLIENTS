@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="OXZNbpl7pFXMGJdfOqL8" name="Page-1">
-        <mxGraphModel dx="1688" dy="2226" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="892" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -14,7 +14,7 @@
                     <mxGeometry x="335" y="-600" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="Clients_address" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="100" y="-510" width="140" height="90" as="geometry"/>
+                    <mxGeometry x="110" y="-510" width="140" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="address_code" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="8" vertex="1">
                     <mxGeometry y="30" width="140" height="30" as="geometry"/>
